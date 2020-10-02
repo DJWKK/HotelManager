@@ -27,5 +27,5 @@ Route::prefix('admin/oAuth')->namespace('Admin\OAuth')->group(function () {
 
 
 Route::prefix('func')->namespace('Func')->group(function () {
-    Route::get('test','IndexController@test');
+    Route::get('test','RomeManageController@getList');
 });

@@ -29,8 +29,8 @@ class IndexController extends Controller
         ];
 
         return $res ?
-            response()->success('顶部信息获取成功',$res,200) :
-            response()->fail('顶部信息获取失败',null,100);
+            response()->success(200,'顶部信息获取成功',$res) :
+            response()->fail(100,'顶部信息获取失败',null);
     }
 
     /**
@@ -40,19 +40,19 @@ class IndexController extends Controller
         $res = CheckRecord::checkList();
 
         return $res ?
-            response()->success('住房信息获取成功',$res,200) :
-            response()->fail('住房信息获取失败',null,100);
+            response()->success(200,'住房信息获取成功',$res) :
+            response()->fail(100,'住房信息获取失败',null);
     }
 
     /**
      * 获取当前所有客房状况
      */
     public function getRoomInfo() {
-        $res = RoomInfo::getInfo();
+        $res = RoomInfo::getCheckInfo();
 
         return $res ?
-            response()->success('客房信息获取成功',$res,200) :
-            response()->fail('客房信息获取失败',null,100);
+            response()->success(200,'客房信息获取成功',$res) :
+            response()->fail(100,'客房信息获取失败',null);
     }
 
     /**
@@ -62,8 +62,8 @@ class IndexController extends Controller
         $res = '';
 
         return $res ?
-            response()->success('近期经营状况获取成功',$res,200) :
-            response()->fail('近期经营状况获取失败',null,100);
+            response()->success(200,'近期经营状况获取成功',$res) :
+            response()->fail(100,'近期经营状况获取失败',null);
     }
 
     /**
@@ -73,8 +73,8 @@ class IndexController extends Controller
         $res = '';
 
         return $res ?
-            response()->success('近期入住状况获取成功',$res,200) :
-            response()->fail('近期入住状况获取失败',null,100);
+            response()->success(200,'近期入住状况获取成功',$res) :
+            response()->fail(100,'近期入住状况获取失败',null);
     }
 
     /**
@@ -86,8 +86,8 @@ class IndexController extends Controller
         $res = TimeRecord::out($ID);
 
         return $res ?
-            response()->success('退房成功',null,200) :
-            response()->fail('退房失败',null,100);
+            response()->success(200,'退房成功',null) :
+            response()->fail(100,'退房失败',null);
     }
 
     /**

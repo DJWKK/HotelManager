@@ -24,7 +24,7 @@ class CheckInController extends Controller
         $res = CustInfo::newCust($name,$code,$tel,$room,$days);
 
         return $res ?
-            response()->success($name.'入住成功',null,200) :
-            response()->fail($name.'入住失败',null,100);
+            response()->success(200,$name.'入住成功',null) :
+            response()->fail(100,$name.'入住失败',null);
     }
 }
