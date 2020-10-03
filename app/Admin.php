@@ -74,4 +74,5 @@ class Admin extends  \Illuminate\Foundation\Auth\User implements JWTSubject, \Il
             return null;
         }
     }
+
 }

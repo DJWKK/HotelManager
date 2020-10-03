@@ -14,4 +14,17 @@ class Log extends Model
     public $timestamps = false;
     protected $primaryKey = 'log_id';
 
+    /**
+     * 获取所有日志
+     */
+    public static function getList()
+    {
+        try{
+            $res = self::all();
+            return $res;
+        } catch(Exception $e) {
+            return null;
+        }
+    }
+
 }

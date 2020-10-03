@@ -27,5 +27,5 @@ Route::prefix('admin/oAuth')->namespace('Admin\OAuth')->group(function () {
 
 
 Route::prefix('func')->namespace('Func')->group(function () {
-    Route::get('test','CustmanageController@getList');
+    Route::get('test','CheckInListController@delInfo');
 });
