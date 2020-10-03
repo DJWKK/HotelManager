@@ -27,4 +27,13 @@ class Log extends Model
         }
     }
 
+    public static function newLog($type,$info)
+    {
+        try{
+
+        } catch(Exception $e) {
+            return null;
+        }
+    }
+
 }

@@ -67,4 +67,15 @@ class CustmanageController extends Controller
             response()->success(200,'用户信息搜索成功',$res) :
             response()->fail(100,'用户信息搜索失败',null);
     }
+
+    public function delInfo(Request $request)
+    {
+        $id = $request['id'];
+
+        $res = CustInfo::delCust($id);
+
+        return $res ?
+            response()->success(200,'用户信息删除成功',null) :
+            response()->fail(100,'用户信息删除失败',null);
+    }
 }

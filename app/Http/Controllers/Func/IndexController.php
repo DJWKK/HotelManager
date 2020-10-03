@@ -34,9 +34,9 @@ class IndexController extends Controller
     }
 
     /**
-     * 获取正在入住的客房列表
+     * 获取正在当前入住客人列表
      */
-    public function getCoustList() {
+    public function getCustList() {
         $res = CheckRecord::checkList();
 
         return $res ?
@@ -90,11 +90,4 @@ class IndexController extends Controller
             response()->fail(100,'退房失败',null);
     }
 
-    /**
-     * 测试方法
-     */
-    public function test(){
-        $res = TimeRecord::out(1);
-        return response()->success(200,'获取成功',$res);
-    }
 }

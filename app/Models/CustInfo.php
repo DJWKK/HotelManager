@@ -92,5 +92,19 @@ class CustInfo extends Model
         }
     }
 
+    /**
+     * 删除顾客信息
+     */
+    public static function delCust($id)
+    {
+        try{
+            $res = self::where('cust_id',$id)
+                        ->delete();
+            return $res;
+        } catch(Exception $e) {
+            return null;
+        }
+    }
+
 
 }

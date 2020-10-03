@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Func;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Requests\CheckInRequest;
 
 use App\Models\CustInfo;
 
@@ -14,7 +13,7 @@ class CheckInController extends Controller
     /**
      * 新客户入住
      */
-    public function checkIn(CheckInRequest $request) {
+    public function checkIn(Request $request) {
         $name = $request['name'];
         $code = $request['code'];
         $tel  = $request['tel'];
