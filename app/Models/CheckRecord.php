@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\AdminLog;
 
 class CheckRecord extends Model
 {
     public $timestamps = false;
     protected $table = 'check_record';
     protected $primaryKey = 'id';
+    protected $fillable = ['time_id','cust_id','room_id'];
 
     /**
      * 获取入住总人数
@@ -18,13 +20,30 @@ class CheckRecord extends Model
         try{
             $res = self::select('*')
                         ->count();
-
             return $res;
         } catch(Exception $e) {
             return null;
         }
     }
 
+    /**
+     * 新入住记录
+     */
+    public static function checkIn($time,$cust,$room)
+    {
+    try {
+        $res = self::create([
+            'time_id' => $time,
+            'cust_id' => $cust,
+            'room_id' => $room
+            ]);
+
+        return $res;
+        } catch(Exception $e) {
+            return null;
+    }
+
+    }
     /**
      * 当前入住记录表
      * 入住时默认时间设置为‘2000-01-01’
@@ -77,6 +96,7 @@ class CheckRecord extends Model
             $res = self::where('id',$rec_id)
                         ->delete();
 
+            AdminLog::newLog('删除','管理员 删除 入住记录:'.$rec_id);
             return $res;
         } catch(Exception $e) {
             return null;
@@ -103,5 +123,14 @@ class CheckRecord extends Model
         }
 
     }
+
+    public static function test()
+    {
+        $res = self::where('id','5')
+                    ->exists();
+
+        return $res;
+    }
+
 
 }

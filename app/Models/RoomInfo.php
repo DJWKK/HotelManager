@@ -67,7 +67,7 @@ class RoomInfo extends Model
                         ->update([
                             'class_id' => $class
                         ]);
-
+            AdminLog::newLog('修改','管理员 修改 房间'.$room.'类别');
             return $res;
         } catch(Exception $e) {
             return null;

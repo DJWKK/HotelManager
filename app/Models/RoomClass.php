@@ -41,7 +41,7 @@ class RoomClass extends Model
                             'name'  => $class3,
                             'price' => $price3
                         ]);
-
+            AdminLog::newLog('更新','管理员 更新 房间类别信息');
             return $res1|$res2|$res3;
         } catch(Exception $e) {
             return null;

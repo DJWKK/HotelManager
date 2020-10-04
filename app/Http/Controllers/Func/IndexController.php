@@ -90,4 +90,14 @@ class IndexController extends Controller
             response()->fail(100,'退房失败',null);
     }
 
+    public function test()
+    {
+        $days = 1;
+        // $res = CheckRecord::test();
+        // return $res ?
+        //     response()->success(200,'200',$res) :
+        //     response()->fail(100,'100',null);
+        return response()->success(200,'200',date('Y-m-d H:i:s',strtotime('+'.$days.' day')));
+    }
+
 }

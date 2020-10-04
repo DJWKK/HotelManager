@@ -5,22 +5,41 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
+use App\Models\AdminLog;
+
 class CustInfo extends Model
 {
     protected $table = 'cust_info';
     public $timestamps = false;
     protected $primaryKey = 'cust_id';
+    protected $fillable = ['sex','name','id_code','tel','created_at'];
 
     /**
-     * 新客户入住
+     * 新客户信息登记
      */
-    public static function newCust($name,$code,$tel,$room,$days)
+    public static function newCust($sex,$name,$code,$tel)
     {
         try{
             $date = date('Y-m-d');
+            $flag = self::where('id_code',$code)
+                        ->exists();
 
+            if($flag){
+                $res = self::select('*')
+                            ->where('id_code',$code)
+                            ->get();
+            } else {
+                $res = self::create([
+                    'sex'        => $sex,
+                    'name'       => $name,
+                    'id_code'    => $code,
+                    'tel'        => $tel,
+                    'created_at' => $date
+                ]);
+                AdminLog::newLog('新增','新增客户 身份证号：'.$code);
+            }
 
-            return $res;
+            return $res->cust_id;
         } catch(Exception $e) {
             return null;
         }
@@ -69,7 +88,7 @@ class CustInfo extends Model
                             'tel'     => $tel,
                             'sex'     => $sex
                         ]);
-
+            AdminLog::newLog('修改','管理员 修改 客户信息'.$cust_id);
             return $res;
         } catch(Exception $e) {
             return null;
@@ -100,6 +119,8 @@ class CustInfo extends Model
         try{
             $res = self::where('cust_id',$id)
                         ->delete();
+
+            AdminLog::newLog('删除','管理员 删除 客户信息'.$id);
             return $res;
         } catch(Exception $e) {
             return null;

@@ -21,8 +21,8 @@ Route::prefix('admin/oAuth')->namespace('Admin\OAuth')->group(function () {
     Route::post('login', 'AuthController@login'); //登陆
     Route::post('logout', 'AuthController@logout'); //退出登陆
     Route::post('refresh', 'AuthController@refresh'); //刷新token
-    Route::post('registered', 'AuthController@registered'); //注册用户
-    Route::get('info', 'AuthController@info'); //注册用户
+    // Route::post('registered', 'AuthController@registered'); //注册用户
+    // Route::get('info', 'AuthController@info'); //注册用户
 });
 
 
@@ -36,7 +36,7 @@ Route::prefix('index')->namespace('Func')->group(function () {
 });
 
 // cust check in 顾客入住
-Route::post('checkin','CheckInController@checkIn');
+Route::post('checkin','Func\CheckInController@checkIn');
 
 // room manager 房间管理
 Route::prefix('roommanager')->namespace('Func')->group(function () {
@@ -68,4 +68,4 @@ Route::prefix('record')->namespace('Func')->group(function () {
 });
 
 //log 日志记录
-Route::get('log','LogController@getLog');
+Route::get('log','Func\LogController@getLog');

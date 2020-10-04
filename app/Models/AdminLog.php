@@ -4,16 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-use Illuminate\Support\Facades\DB;
 
 
 
-class Log extends Model
+class AdminLog extends Model
 {
     protected $table = 'log';
     public $timestamps = false;
     protected $primaryKey = 'log_id';
-
+    protected $fillable = ['type','info','time'];
     /**
      * 获取所有日志
      */
@@ -30,6 +29,15 @@ class Log extends Model
     public static function newLog($type,$info)
     {
         try{
+            $date = date('D F j H:m:i Y');
+
+            $res = self::create([
+                'type' => $type,
+                'info' => $info,
+                'time' => $date
+            ]);
+
+            return $res;
 
         } catch(Exception $e) {
             return null;
