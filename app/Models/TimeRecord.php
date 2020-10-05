@@ -69,7 +69,7 @@ class TimeRecord extends Model
             $res = self::where('time_id',$TimeID)
                         ->update(['res_time' => $now]);
 
-            AdminLog::newLog('退房','时间记录'.$id.'离店');
+            AdminLog::newLog('退房','时间记录'.$TimeID.'离店');
             return $res;
         } catch(Exception $e) {
             return null;

@@ -44,7 +44,7 @@ class CheckInListController extends Controller
 
         $res = CheckRecord::search($value);
         return $res ?
-            response()->success(200,'信息删除成功',null) :
-            response()->fail(100,'信息删除失败',null);
+            response()->success(200,'信息获取成功成功',$res) :
+            response()->fail(100,'信息获取成功失败',null);
     }
 }

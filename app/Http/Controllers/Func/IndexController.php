@@ -80,8 +80,8 @@ class IndexController extends Controller
     /**
      * 客户退房
      */
-    public function checkOut(CheckOutRequest $request) {
-        $ID = $request['TimeID'];
+    public function checkOut(Request $request) {
+        $ID = $request['time_id'];
 
         $res = TimeRecord::out($ID);
 

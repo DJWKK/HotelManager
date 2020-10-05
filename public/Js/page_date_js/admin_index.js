@@ -2,9 +2,12 @@
   function out(id) {
     x = confirm("确定退房嘛？");
     if (x==true){
-
+        xmlhttp=new XMLHttpRequest();
+        xmlhttp.open("GET","/api/index/checkout?time_id="+id,true);
+        xmlhttp.send();
+        location.reload();
     }else{
-
+        console.log('xxx');
     }
   }
 
@@ -19,10 +22,7 @@ for (var i = 0; i < 5; i++) {
     dateTemp = (myDate.getMonth()+1)+"/"+myDate.getDate();
     date.push(dateTemp);
     myDate.setDate(myDate.getDate() + flag);
-    console.log(dateTemp);
 }
-
-
 
 
 //图标数据获取
@@ -154,3 +154,62 @@ heatMapOpt = {
     }]
 };
 heatMap.setOption(heatMapOpt);
+
+
+
+$(document).ready(function() {
+    $.get('/api/index/titledata', function (data) {
+        var count = data.data.count;
+        var reser = data.data.reservation;
+        var leave = data.data.leave;
+        var nowIn = data.data.nowIn;
+        
+        $('#count').empty();
+        $('#count').append(count);
+
+        $('#reser').empty();
+        $('#reser').append(reser);
+
+        $('#leave').empty();
+        $('#leave').append(leave);
+
+        $('#nowIn').empty();
+        $('#nowIn').append(nowIn);
+}
+
+);
+
+    $.get('api/index/custlist', function (data) {
+        let Str = '';
+        for (var i= 0 ;i<data.data.length;i++)
+        {
+            $(data.data[i]).each(function () {
+                Str += `
+                <tr>
+                <td></td>
+                <td>${data.data[i].room_id}</td>
+                <td class="am-hide-sm-only">${data.data[i].name}</td>
+                <td class="am-hide-sm-only">${data.data[i].id_code}</td>
+                <td class="am-hide-sm-only">${data.data[i].in_time}</td>
+                <td class="am-hide-sm-only">${data.data[i].out_time}</td>
+                <td>
+                  <div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+<button class="am-btn am-btn-default am-btn-xs am-text- danger am-hide-sm-only" onclick="out(${data.data[i].time_id})"> 提前退房
+</button>
+      </div>
+    </div>
+</td> </tr>
+`;
+});
+        }
+        $('#custlist').empty();
+        $('#custlist').append(Str);
+
+}
+
+);
+
+
+
+});

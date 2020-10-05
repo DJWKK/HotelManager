@@ -100,12 +100,7 @@
 
       </div>
       <div class="am-u-sm-12 am-u-md-3">
-        <div class="am-input-group am-input-group-sm">
-          <input type="text" class="am-form-field">
-          <span class="am-input-group-btn">
-            <button class="am-btn am-btn-default" type="button">搜索</button>
-          </span>
-        </div>
+        
       </div>
     </div>
 
@@ -118,17 +113,15 @@
                 </th><th class="table-title">房间号</th>
                 <th class="table-title">房间类型</th>
                 <th class="table-title">每晚单价</th>
-                <th class="table-title">入住次数</th>
                 <th class="table-set">操作</th>
               </tr>
           </thead>
-          <tbody>
+          <tbody id="room_list">
             <tr>
               <td></td>
               <td>101</td>
               <td>大床房</td>
               <td class="am-hide-sm-only">199</td>
-              <td class="am-hide-sm-only">23</td>
               <td>
                 <div class="am-btn-toolbar">
                   <div class="am-btn-group am-btn-group-xs">
@@ -142,7 +135,6 @@
               <td>102</td>
               <td>大床房</td>
               <td class="am-hide-sm-only">199</td>
-              <td class="am-hide-sm-only">23</td>
               <td>
                 <div class="am-btn-toolbar">
                   <div class="am-btn-group am-btn-group-xs">
@@ -156,7 +148,6 @@
               <td>201</td>
               <td>大床房</td>
               <td class="am-hide-sm-only">199</td>
-              <td class="am-hide-sm-only">23</td>
               <td>
                 <div class="am-btn-toolbar">
                   <div class="am-btn-group am-btn-group-xs">
@@ -169,8 +160,7 @@
           </tbody>
         </table>
           <div class="am-cf">
-              <hr>
-  共 3 条记录 / <small>所有操作都会被记录在系统日志中</small>
+              <hr><small>所有操作都会被记录在系统日志中</small>
               <hr>
   <div class="am-fr">
   </div>
@@ -188,38 +178,30 @@
 <div class="am-modal am-modal-prompt" tabindex="-1" id="edit_room_info">
   <div class="am-modal-dialog">
     <div class="am-modal-hd">房间信息修改</div>
+    <form id="form">
+
     <div class="am-modal-bd">
       <div class="am-input-group am-input-group-lg">
           <span class="am-input-group-label" style="width: 20%;">房间编号</span>
-          <input type="text" class="am-form-field" value="" id="room_id" readonly>
+          <input type="text" class="am-form-field" value="" name="room_id" id="room_id" readonly>
         </div>
 
         <div class="am-input-group am-input-group-lg">
           <span class="am-input-group-label">房间类型</span>
-          <select name="" class="am-form-field" id="room_class">
-              <option value="大床房">大床房</option>
-              <option value="标准间">标准间</option>
-              <option value="主题房">主题房</option>
+          <select name="class" class="am-form-field" name="class" id="class" required>
+              <option value="1">大床房</option>
+              <option value="2">标准间</option>
+              <option value="3">主题房</option>
           </select>
         </div>
-        <!-- 房间类型和每晚单价实现表单联动 -->
-        <div class="am-input-group am-input-group-lg">
-          <span class="am-input-group-label">每晚单价</span>
-          <input type="text" class="am-form-field" value="199" id="room_price" readonly>
-        </div>
-
-
-
-        <div class="am-input-group am-input-group-lg">
-          <span class="am-input-group-label">入住次数</span>
-          <input type="text" class="am-form-field" value="23" id="cust_date" readonly>
-        </div>
-
     </div>
+
+    
     <div class="am-modal-footer">
       <span class="am-modal-btn" data-am-modal-cancel>取消</span>
       <span class="am-modal-btn" data-am-modal-confirm>提交</span>
     </div>
+  </form>
   </div>
 </div>
 <!-- 修改信息弹出层 end -->

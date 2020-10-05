@@ -12,3 +12,5 @@
 */
 
 
+//log 日志记录
+Route::get('log','Func\LogController@getLog');

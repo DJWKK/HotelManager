@@ -76,7 +76,7 @@ class CheckRecord extends Model
 
             for($i = 0;$i<count($datas);$i++) {
                 if ($datas[$i]->res_time == '2000-01-01 00:00:00') {
-                    $datas[$i]->res_time = null;
+                    $datas[$i]->res_time = '尚未离店';
                 }
             }
 

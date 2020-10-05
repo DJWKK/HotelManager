@@ -93,60 +93,58 @@
 
       <div class="am-u-sm-12 am-u-md-4 am-u-md-push-8">
 
-        <!-- <div class="am-panel am-panel-default">
-          <div class="am-panel-bd">
-            <div class="user-info">
-              <p>信用信息</p>
-              <div class="am-progress am-progress-sm">
-                <div class="am-progress-bar am-progress-bar-success" style="width: 80%"></div>
-              </div>
-              <p class="user-info-order">信用等级：正常当前 信用积分：<strong>80</strong></p>
-            </div>
-          </div>
-        </div> -->
-
       </div>
 
       <div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
-        <form class="am-form am-form-horizontal">
+        <form class="am-form am-form-horizontal" id="form" name="form">
           <div class="am-form-group">
-            <label for="user-name" class="am-u-sm-3 am-form-label">客户姓名</label>
+            <label for="name" class="am-u-sm-3 am-form-label">客户姓名</label>
             <div class="am-u-sm-9">
-              <input type="text" id="user-name" placeholder="姓名" required>
+              <input type="text" id="name" name="name" placeholder="姓名" required>
             </div>
           </div>
 
           <div class="am-form-group">
-            <label for="user-ID" class="am-u-sm-3 am-form-label">身份证号</label>
+            <label for="name" class="am-u-sm-3 am-form-label">客户性别</label>
             <div class="am-u-sm-9">
-              <input type="text" id="user-ID" placeholder="身份证号" required>
+              <select name="sex" id="sex">
+                  <option value="男">男</option>
+                  <option value="女">女</option>
+              </select>
             </div>
           </div>
 
           <div class="am-form-group">
-            <label for="user-phone" class="am-u-sm-3 am-form-label">联系电话</label>
+            <label for="code" class="am-u-sm-3 am-form-label">身份证号</label>
             <div class="am-u-sm-9">
-              <input type="text" id="user-phone" placeholder="联系电话" required>
+              <input type="text" id="code" name="code" placeholder="身份证号" required>
             </div>
           </div>
 
           <div class="am-form-group">
-            <label for="user-weibo" class="am-u-sm-3 am-form-label">房间号</label>
+            <label for="tel" class="am-u-sm-3 am-form-label">联系电话</label>
             <div class="am-u-sm-9">
-              <input type="email" id="user-weibo" placeholder="选择房间号" required>
+              <input type="text" id="tel" name="tel" placeholder="联系电话" required>
             </div>
           </div>
 
           <div class="am-form-group">
-            <label for="user-weibo" class="am-u-sm-3 am-form-label">入住天数</label>
+            <label for="room_id" class="am-u-sm-3 am-form-label">房间号</label>
             <div class="am-u-sm-9">
-              <input type="number" id="user-weibo" placeholder="输入天数" required>
+              <input type="text" id="room_id" name="room_id" placeholder="选择房间号" required>
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <label for="days" class="am-u-sm-3 am-form-label">入住天数</label>
+            <div class="am-u-sm-9">
+              <input type="number" id="days" name="days" placeholder="输入天数" required>
             </div>
           </div>
 
           <div class="am-form-group">
             <div class="am-u-sm-9 am-u-sm-push-3">
-              <button type="button" class="am-btn am-btn-primary">确认入住</button>
+              <button class="am-btn am-btn-primary" name="submit" onclick="submit2()">确认入住</button>
             </div>
           </div>
 
