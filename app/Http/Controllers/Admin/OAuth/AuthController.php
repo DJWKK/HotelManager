@@ -15,6 +15,7 @@ class AuthController extends Controller
     {
         try {
             $credentials = self::credentials($loginRequest);
+
             if (!$token = auth('user')->attempt($credentials)) {
                 return response()->fail(100, '账号或者用户名错误!', null);
             }
@@ -54,7 +55,7 @@ class AuthController extends Controller
 
     protected function credentials($request)
     {
-        return ['id' => $request['id'], 'password' => $request['password']];
+        return ['work_id' => $request['work_id'], 'password' => $request['password']];
     }
 
 //    protected function checkUser()

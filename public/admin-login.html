@@ -35,12 +35,12 @@
     <h3>登录</h3>
     <hr>
 
-    <form method="post" class="am-form">
+    <form method="post" class="am-form" id="login">
       <label for="ClassID">工号:</label>
-      <input type="text" name="" id="ClassID" value="">
+      <input type="text" name="work_id" id="ClassID" value="">
       <br>
       <label for="password">密码:</label>
-      <input type="password" name="" id="password" value="">
+      <input type="password" name="password" id="password" value="">
       <br>
       <label for="remember-me">
         <input id="remember-me" type="checkbox">
@@ -48,8 +48,8 @@
       </label>
       <br />
       <div class="am-cf">
-        <input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm am-fl">
-        <input type="submit" name="" value="忘记密码 ^_^? " class="am-btn am-btn-default am-btn-sm am-fr">
+        <input type="button" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm am-fl" onclick=login()>
+        <input type="button" name="" value="忘记密码 ^_^? " class="am-btn am-btn-default am-btn-sm am-fr">
       </div>
     </form>
     <hr>
@@ -57,4 +57,9 @@
   </div>
 </div>
 </body>
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="assets/js/amazeui.min.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="js/page_date_js/admin_login.js"></script>
 </html>
