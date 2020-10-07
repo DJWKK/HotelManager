@@ -58,12 +58,7 @@ class AuthController extends Controller
         return ['work_id' => $request['work_id'], 'password' => $request['password']];
     }
 
-//    protected function checkUser()
-//    {
-//        return auth()->user()->account_state == '0' ?
-//            true :
-//            false;
-//    }
+
 
     protected function respondWithToken($token, $msg)
     {
